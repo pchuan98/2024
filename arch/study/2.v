@@ -141,6 +141,15 @@ module TEST2 ();
 
     reg a, b;
     wire o_and, o_or, o_not, o_nand, o_nor, o_xor, o_xnor;
+    wire o_and1, o_or1, o_not1, o_nand1, o_nor1, o_xor1, o_xnor1;
+
+    and and2 (o_and1, a, b);
+    or or2 (o_or1, a, b);
+    not not2 (o_not1, a);
+    nand nand2 (o_nand1, a, b);
+    nor nor2 (o_nor1, a, b);
+    xor xor2 (o_xor1, a, b);
+    xnor xnor2 (o_xnor1, a, b);
 
     AND and1 (
         o_and,
@@ -179,9 +188,10 @@ module TEST2 ();
 
     initial begin
 
-        $display("time\ta\tb\tAND\tOR\tNOT\tNAND\tNOR\tXOR\tXNOR");
-        $monitor("%g\t\t%b\t%b\t%b\t%b\t%b\t%b\t\t%b\t%b\t%b", $time, a, b, o_and, o_or, o_not,
-                 o_nand, o_nor, o_xor, o_xnor);
+        $display("time\ta\tb\tAND\t\tOR\t\tNOT\t\tNAND\t\tNOR\t\tXOR\t\tXNOR");
+        $monitor("%g\t\t%b\t%b\t%b(%b)\t%b(%b)\t%b(%b)\t%b(%b)\t\t%b(%b)\t%b(%b)\t%b(%b)", $time,
+                 a, b, o_and, o_and1, o_or, o_or1, o_not, o_not1, o_nand, o_nand1, o_nor, o_nor1,
+                 o_xor, o_xor1, o_xnor, o_xnor1);
 
         // init
         a = 0;
