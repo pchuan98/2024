@@ -1,5 +1,8 @@
 /**
  * TODO: adder
+ * 1. Subtraction
+ * 2. Overflow judgment
+ * 3. Flag
  * and or not nand nor xor
  */
 
